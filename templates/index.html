@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <title>Replication of marketing campagin optimization</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: linear-gradient(to bottom, #f3ec78, #af4261);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-align: center;
+            color: #af4261;
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        form {
+            width: 90%;
+            max-width: 500px;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #af4261;
+            font-size: 14px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: #f7f7f7;
+        }
+
+        input[type="text"]:focus {
+            border-color: #af4261;
+            box-shadow: 0 0 8px rgba(175, 66, 97, 0.5);
+            outline: none;
+            background: #ffffff;
+        }
+
+        button {
+            width: 100%;
+            background: linear-gradient(to right, #36d1dc, #5b86e5);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #2894b8, #4568dc);
+        }
+
+        .prediction-result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #af4261;
+            width: 90%;
+            max-width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="/predict">
+        <h1>Replication of marketing campagin optimization</h1>
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" required>
+
+        <label for="income">Income:</label>
+        <input type="text" id="income" name="income" required>
+
+        <label for="number_transactions">Number of Transactions:</label>
+        <input type="text" id="number_transactions" name="number_transactions" required>
+
+        <label for="loan_accounts">Loan Accounts:</label>
+        <input type="text" id="loan_accounts" name="loan_accounts" required>
+
+        <label for="months_customer">Months as Customer:</label>
+        <input type="text" id="months_customer" name="months_customer" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+    <div class="prediction-result">
+        <h3>{{ prediction_text }}</h3>
+    </div>
+{% elif error_message %}
+    <div class="prediction-result" style="color: red;">
+        <h3>{{ error_message }}</h3>
+    </div>
+{% endif %}
+
+</body>
+</html>
